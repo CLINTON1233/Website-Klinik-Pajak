@@ -137,6 +137,9 @@ Route::get('/beranda', [IndexController::class, 'tampilkan'])->name('beranda');
 
 // Layanan
 Route::get('/layanan', [LayananController::class, 'tampilkan'])->name('layanan');
+Route::get('/kalkulator', function () {
+    return view('kalkulator');
+});
 
 //Index Konsultasi
 Route::get('/konsultan', [KonsultanUserController::class, 'tampilkan'])->name('konsultan');
