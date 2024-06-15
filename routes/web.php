@@ -34,6 +34,9 @@ use App\Http\Controllers\AgribisnisController;
 use App\Http\Controllers\KosmetikController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\KonsultanGuest2Controller;
+use App\Http\Controllers\PajakdaerahController;
+use App\Http\Controllers\PajakdaerahbatamController;
+use App\Http\Controllers\ViewpdfController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -175,4 +178,13 @@ Route::get('/event', [EventController::class, 'tampilkan'])->name('event');
 
 //Konsultan Guest
 Route::get('/konsultansguest2', [KonsultanGuest2Controller::class, 'tampilkan'])->name('konsultanguest2');
+
+//Peraturan
+Route::get('/pajakdaerah', [PajakdaerahController::class, 'tampilkan'])->name('pajak_daerah');
+Route::get('/pajakdaerahbatam', [PajakdaerahbatamController::class, 'tampilkan'])->name('pajak_daerah_batam');
+
+//PDF
+Route::get('/viewpdf', [ViewpdfController::class, 'tampilkan'])->name('viewpdf');
+
+
 
