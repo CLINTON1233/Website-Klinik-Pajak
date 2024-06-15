@@ -5,7 +5,6 @@
 
     <title>Dashboard | Sudut Pajak</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
-    <!-- Sertakan CSS Anda di sini -->
     <script src="{{ asset('assets/js/plugin/webfont/webfont.min.js') }}"></script>
     <script>
         WebFont.load({
@@ -16,10 +15,9 @@
                 "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands",
                     "simple-line-icons"
                 ],
-                urls: ['{{ asset('
-                    assets / css / fonts.min.css ') }}'
-                ]
+                urls: ['{{ asset("assets/css/fonts.min.css") }}']
             },
+
             active: function() {
                 sessionStorage.fonts = true;
             }
@@ -263,20 +261,20 @@
                         </li>
 
                         <!-- Konsultan -->
-                        <li class="nav-item <?= (Request::is('user/demo1/create_konsultan') || Request::is('user/demo1/list_konsultan')) ? 'active' : '' ?>">
+                        <li class="nav-item {{ request()->is('user/demo1/create_konsultan') || request()->is('user/demo1/list_konsultan') ? 'active' : '' }}">
                             <a data-toggle="collapse" href="#konsultan">
                                 <i class="fas fa-user-plus"></i>
                                 <p>Manajemen Konsultan</p>
                                 <span class="caret"></span>
                             </a>
-                            <div class="collapse <?= (Request::is('user/demo1/create_konsultan') || Request::is('user/demo1/edit_konsultan/*') || Request::is('user/demo1/list_konsultan')) ? 'show' : '' ?>" id="konsultan">
+                            <div class="collapse {{ request()->is('user/demo1/create_konsultan') || request()->is('user/demo1/edit_konsultan/*') || request()->is('user/demo1/list_konsultan') ? 'show' : '' }}" id="konsultan">
                                 <ul class="nav nav-collapse">
-                                    <li class="<?= (Request::is('user/demo1/create_konsultan') || Request::is('user/demo1/edit_konsultan/*')) ? 'active' : '' ?>">
+                                    <li class="{{ request()->is('user/demo1/create_konsultan') || request()->is('user/demo1/edit_konsultan/*') ? 'active' : '' }}">
                                         <a href="{{ route('create_konsultan') }}">
                                             <span class="sub-item">Tambah Konsultan</span>
                                         </a>
                                     </li>
-                                    <li class="<?= Request::is('user/demo1/list_konsultan') ? 'active' : '' ?>">
+                                    <li class="{{ request()->is('user/demo1/list_konsultan') ? 'active' : '' }}">
                                         <a href="{{ route('list_konsultan') }}">
                                             <span class="sub-item">List Konsultan</span>
                                         </a>
@@ -284,6 +282,7 @@
                                 </ul>
                             </div>
                         </li>
+
 
                         <!--Kuis-->
                         <li class="nav-item {{ (Request::is('user/demo1/list_kuis') || Request::is('user/demo1/riwayat_pengerjaan')) ? 'active' : '' }}">

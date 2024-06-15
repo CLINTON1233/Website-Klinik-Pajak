@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Konsultan | Sudut Pajak</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
 </head>
+
 <body>
     @include('user.demo1.layout.sidebar')
 
@@ -52,23 +54,24 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($konsultans as $konsultan)
-                                                        <tr>
-                                                            <td>{{ $loop->index + 1 }}</td>
-                                                            <td>{{ $konsultan->unique_id }}</td>
-                                                            <td>{{ $konsultan->nama }}</td>
-                                                            <td>{{ $konsultan->email }}</td>
-                                                            <td>{{ $konsultan->bio }}</td>
-                                                            <td><img src="{{ asset('img/konsultan_profil/' . $konsultan->profil_pic) }}" alt="Profil Pic" width="50" height="50"></td>
-                                                            <td>{{ $konsultan->alumnus }}</td>
-                                                            <td>{{ $konsultan->bidang }}</td>
-                                                            <td>{{ $konsultan->status }}</td>
-                                                            <td>{{ $konsultan->pengalaman }}</td>
-                                                            <td>{{ $konsultan->jenjang_karir }}</td>
-                                                            <td>
-																<a href="{{ route('detail_konsultan', ['id' => $konsultan->id_konsultan]) }}" class="btn btn-primary btn-sm">Detail</a>
-																<button onclick="deleteData({{ $konsultan->id_konsultan }})" class="btn btn-danger btn-sm">Delete</button>
-															</td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $konsultan->unique_id }}</td>
+                                                        <td>{{ $konsultan->nama }}</td>
+                                                        <td>{{ $konsultan->email }}</td>
+                                                        <td>{{ $konsultan->bio }}</td>
+                                                        <td><img src="{{ asset('img/konsultan_profil/' . $konsultan->profil_pic) }}" alt="Profil Pic" width="50" height="50"></td>
+                                                        <td>{{ $konsultan->alumnus }}</td>
+                                                        <td>{{ $konsultan->bidang }}</td>
+                                                        <td>{{ $konsultan->status }}</td>
+                                                        <td>{{ $konsultan->pengalaman }}</td>
+                                                        <td>{{ $konsultan->jenjang_karir }}</td>
+                                                        <td>
+                                                            <a href="{{ route('detail_konsultan', ['id' => $konsultan->id_konsultan]) }}" class="btn btn-primary btn-sm">Detail</a>
+                                                            <button onclick="deleteData('{{ $konsultan->id_konsultan }}')" class="btn btn-danger btn-sm">Delete</button>
+                                                        </td>
+
+                                                    </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -97,7 +100,7 @@
                 },
                 buttonsStyling: false
             });
-            
+
             swalWithBootstrapButtons.fire({
                 title: 'Apa kamu yakin?',
                 text: "Anda tidak akan dapat mengembalikan data ini!",
@@ -151,4 +154,5 @@
         }
     </script>
 </body>
+
 </html>
