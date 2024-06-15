@@ -100,8 +100,8 @@
                                                 <div class="mega-menu-innner">
                                                     <div class="single-megamenu">
                                                         <ul class="sub-menu">
-                                                            <li><a href="{{ url('pajak_daerah') }}">Peraturan Pajak Pusat</a></li>
-                                                            <li><a href="{{ url('pajak_daerahbatam') }}">Peraturan Pajak Daerah Kota Batam</a></li>
+                                                            <li><a href="{{ url('pajakdaerah') }}">Peraturan Pajak Pusat</a></li>
+                                                            <li><a href="{{ url('pajakdaerahbatam') }}">Peraturan Pajak Daerah Kota Batam</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
