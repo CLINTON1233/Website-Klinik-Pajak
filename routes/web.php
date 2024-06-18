@@ -129,12 +129,6 @@ Route::get('user/register', [UserAuthController::class, 'showRegistrationForm'])
 Route::post('user/register', [UserAuthController::class, 'register'])->name('user.register');
 
 
-//Quiz
-//Route::get('/Quiz_pajak', [QuizPajakController::class, 'tampilkan']);
-
-//Kalkulator
-//Route::get('/penghasilan', [PenghasilanController::class, 'tampilkan']);
-
 // Beranda
 Route::get('/beranda', [IndexController::class, 'tampilkan'])->name('beranda');
 
@@ -148,22 +142,22 @@ Route::get('/kalkulator', function () {
 Route::get('/konsultan', [KonsultanUserController::class, 'tampilkan'])->name('konsultan');
 
 //Pelatihan
-Route::get('/pelatihan_sertifikasi',[PelatihanUserController::class, 'tampilkan'])->name('pelatihan');
+Route::get('/pelatihan_sertifikasi', [PelatihanUserController::class, 'tampilkan'])->name('pelatihan');
 
 //Kategori_Usaha
-Route::get('/daftar_berita',[Daftar_BeritaController::class, 'tampilkan'])->name('daftar_berita');
+Route::get('/daftar_berita', [Daftar_BeritaController::class, 'tampilkan'])->name('daftar_berita');
 
 //Daftar_Berita
-Route::get('/kategori_usaha',[Kategori_UsahaController::class, 'tampilkan'])->name('kategori_usaha');
+Route::get('/kategori_usaha', [Kategori_UsahaController::class, 'tampilkan'])->name('kategori_usaha');
 
 //Forum
-Route::get('/forum',[ForumController::class, 'tampilkan'])->name('forum');
+Route::get('/forum', [ForumController::class, 'tampilkan'])->name('forum');
 
 //Kuis pajak
-Route::get('/kuis',[KuispajakController::class, 'tampilkan'])->name('kuis');
+Route::get('/kuis', [KuispajakController::class, 'tampilkan'])->name('kuis');
 
 //Materi Pelatihan
-Route::get('/materi_pelatihan',[MateriPelatihanController::class, 'tampilkan'])->name('materi');
+Route::get('/materi_pelatihan', [MateriPelatihanController::class, 'tampilkan'])->name('materi');
 
 // Detail_Berita
 Route::get('/detail-berita', [DetailBeritaController::class, 'tampilkan'])->name('detail_berita');
@@ -185,6 +179,3 @@ Route::get('/pajakdaerahbatam', [PajakdaerahbatamController::class, 'tampilkan']
 
 //PDF
 Route::get('/viewpdf', [ViewpdfController::class, 'tampilkan'])->name('viewpdf');
-
-
-
