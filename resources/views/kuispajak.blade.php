@@ -17,6 +17,8 @@
             max-width: 600px;
             margin: 10% auto;
             padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .card {
@@ -65,6 +67,7 @@
             <h3 class="text-center">Selamat Datang</h3>
             <p class="text-center">Selamat mengerjakan, jangan lupa berdoa dulu.</p>
             <form id="quiz-form" action="{{ route('quiz.page') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="nama">Nama:</label>
                     <input type="text" id="nama" name="nama" required pattern="[A-Za-z\s]+" title="Nama harus terdiri dari huruf saja" />
