@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 </head>
+
 <body>
+    <br><br>
     <div class="container my-5">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-md-8 col-lg-7 col-xl-6">
@@ -23,7 +26,7 @@
                     <h5 class="title bg-left">Silahkan login terlebih dahulu</h5>
                 </div>
                 @if ($errors->has('error'))
-                    <p class="text-danger">{{ $errors->first('error') }}</p>
+                <p class="text-danger">{{ $errors->first('error') }}</p>
                 @endif
                 <form action="{{ route('user.login') }}" method="POST">
                     @csrf
@@ -69,4 +72,5 @@
 
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
+
 </html>

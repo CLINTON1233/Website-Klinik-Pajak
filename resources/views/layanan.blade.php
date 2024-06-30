@@ -20,11 +20,9 @@
     <?php
 
     session_start();
-    // include './connection.php';
-    ?>
-    <!-- Header Menu End -->
 
-    <!-- Breadcrumbs Start -->
+    ?>
+
     <div class="breadcrumbs">
         <div class="breadcrumbs-wrap">
             <img src="{{ asset('images/bg.jpg') }}" alt="Breadcrumbs Image">

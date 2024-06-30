@@ -91,12 +91,20 @@
                         <div>
                             <table>
                                 <tr>
-                                    <td><p class="fw-bold fs-3">Judul Kuis : </p> </td>
-                                    <td><p>{{ $kuis->judul_kuis }}</p></td>
+                                    <td>
+                                        <p class="fw-bold fs-3">Judul Kuis : </p>
+                                    </td>
+                                    <td>
+                                        <p>{{ $kuis->judul_kuis }}</p>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td><p class="fw-bold fs-3">Waktu Kuis : </p></td>
-                                    <td><p>{{ $kuis->waktu }} Menit</p></td>
+                                    <td>
+                                        <p class="fw-bold fs-3">Waktu Kuis : </p>
+                                    </td>
+                                    <td>
+                                        <p>{{ $kuis->waktu }} Menit</p>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -140,9 +148,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-kirim">
-                                <span class="font">Kirim</span>
-                            </button>
+
                         </div>
                     </div>
                 </div>

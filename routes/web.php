@@ -37,11 +37,7 @@ use App\Http\Controllers\KonsultanGuest2Controller;
 use App\Http\Controllers\PajakdaerahController;
 use App\Http\Controllers\PajakdaerahbatamController;
 use App\Http\Controllers\ViewpdfController;
-use App\Http\Controllers\Quiz1_PajakController;
-use App\Http\Controllers\Quiz2_PajakController;
-use App\Http\Controllers\Quiz3_PajakController;
-use App\Http\Controllers\Quiz4_PajakController;
-use App\Http\Controllers\Quiz5_PajakController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -159,13 +155,21 @@ Route::get('/kategori_usaha', [Kategori_UsahaController::class, 'tampilkan'])->n
 Route::get('/forum', [ForumController::class, 'tampilkan'])->name('forum');
 
 // Kuis pajak
-Route::get('/kuis', [KuispajakController::class, 'tampilkan'])->name('kuis');
-Route::post('/quiz1_pajak', [Quiz1_PajakController::class, 'tampilkan'])->name('quiz1_show');
-Route::get('/quiz1_pajak', [Quiz1_PajakController::class, 'tampilkan'])->name('quiz1');
-Route::get('/quiz2_pajak', [Quiz2_PajakController::class, 'tampilkan'])->name('quiz2');
-Route::get('/quiz3_pajak', [Quiz3_PajakController::class, 'tampilkan'])->name('quiz3');
-Route::get('/quiz4_pajak', [Quiz4_PajakController::class, 'tampilkan'])->name('quiz4');
-Route::get('/quiz5_pajak', [Quiz5_PajakController::class, 'tampilkan'])->name('quiz5');
+// Kuis pajak
+Route::get('/kuis', [KuispajakController::class, 'tampilkanKuisUtama'])->name('kuis');
+Route::get('/kuispajak', [KuispajakController::class, 'tampilkanKuisPajak'])->name('kuispajak');
+Route::get('/quiz-page', [KuispajakController::class, 'showQuizPage'])->name('kuis.show');
+Route::post('/quiz-page', [KuispajakController::class, 'handleQuizPage'])->name('quiz.page');
+Route::get('/quiz1_pajak', [KuispajakController::class, 'tampilkanQuizPajak1'])->name('quiz1_pajak');
+Route::get('/quiz1_pajak/next/{currentIndex}', [KuispajakController::class, 'showNextQuiz'])->name('next_quiz');
+
+// Rute untuk halaman konfirmasi kuis
+Route::get('/kuispajak', [KuispajakController::class, 'tampilkanKuisPajak'])->name('kuispajak');
+Route::post('/kuispajak', [KuispajakController::class, 'handleQuizPage'])->name('quiz.page');
+Route::post('/quiz-page/{currentIndex}', [KuispajakController::class, 'saveAnswer'])->name('save_answer');
+Route::get('/konfirmasi-kuis', [KuispajakController::class, 'konfirmasiKuis'])->name('konfirmasi_kuis');
+Route::post('/kirim-jawaban', [KuispajakController::class, 'sendAnswers'])->name('send_answers');
+Route::get('/hasil-kuis', [KuispajakController::class, 'hasilKuis'])->name('hasil_kuis');
 
 //Materi Pelatihan
 Route::get('/materi_pelatihan', [MateriPelatihanController::class, 'tampilkan'])->name('materi');

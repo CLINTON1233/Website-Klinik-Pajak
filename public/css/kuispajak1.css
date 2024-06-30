@@ -1,0 +1,269 @@
+.single-about {
+    height: 300px;
+}
+
+.single-about>p {
+    color: black;
+}
+
+.small-img {
+    width: 50px;
+    height: auto;
+}
+
+.text {
+    margin-left: 370px;
+    font-size: 14px;
+    margin-top: -40px;
+    font-weight: bold;
+}
+
+.box {
+    width: 18%;
+    max-width: 1030px;
+    height: 150px;
+    background-color: white;
+    border: 20px solid transparent;
+    background-clip: padding-box;
+    border-radius: 30px;
+    margin-top: 80px;
+    position: relative;
+    margin-left: 10px;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(to top, #289C5E, #4FA2ED);
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.box1 {
+    width: 700px;
+    max-width: 1350px;
+    height: 400px;
+    background-color: white;
+    border: 10px solid transparent;
+    background-clip: padding-box;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: -130px;
+    margin-left: 250px;
+    position: relative;
+}
+
+
+.box1::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(to top, #289C5E, #4FA2ED);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.box3 {
+    width: 240px;
+    max-width: 1350px;
+    height: 230px;
+    background-color: white;
+    border: 10px solid transparent;
+    background-clip: padding-box;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: -275px;
+    margin-left: 750px;
+    position: relative;
+}
+
+.box3::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(to top, #289C5E, #4FA2ED);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.big-img {
+    position: absolute;
+    margin-right: 100px;
+    margin-top: 50px;
+    width: 1200px;
+    height: auto;
+}
+
+.text-bold {
+    font-weight: 900;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 500px;
+}
+
+/* Gaya teks */
+.footer p {
+    margin: -100px;
+    color: black;
+}
+
+.red-text {
+    color: red;
+    margin-bottom: 590px;
+}
+
+.no-margin {
+    margin-bottom: 0;
+}
+
+.lowered-text {
+    margin-top: 400px;
+}
+
+.time-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-color: red;
+    padding: 10px;
+    width: 170px;
+    height: 40px;
+    margin-left: 490px;
+    margin-top: 20px;
+    display: inline-block;
+    font-weight: 800;
+}
+
+.input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 5px;
+}
+
+.number-button {
+    background-color: #4CAF50;
+    background-image: linear-gradient(to right, #4CAF50, #2196F3);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.number-list {
+    flex-wrap: wrap;
+    display: flex;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.number-list li {
+    flex: 0 0 calc(50% - 10px);
+    margin-bottom: 10px;
+    justify-content: flex-start;
+}
+
+.number-button1 {
+    margin-left: -50px;
+    padding: 5px 12px;
+    border-radius: 10%;
+}
+
+.number-button2 {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10%;
+}
+
+.number-button3 {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10%;
+}
+
+.number-button4 {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 10%;
+}
+
+.number-button5 {
+    margin-right: auto;
+    margin-left: -50px;
+    display: block;
+
+    margin-top: 20px;
+    padding: 5px 10px;
+    border-radius: 10%;
+
+}
+
+.finish-button {
+    background-color: #4CAF50;
+    background-image: linear-gradient(to right, #4CAF50, #2196F3);
+    color: white;
+    padding: 5px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 40px;
+    width: 100px;
+}
+
+.next-button {
+    background-color: #4CAF50;
+    background-image: linear-gradient(to right, #4CAF50, #2196F3);
+    color: white;
+    padding: 5px 20px; 
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 200px;
+    margin-left: -225px;
+    width: 150px;
+    font-size: 18px; 
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-container input[type="radio"],
+.radio-container label {
+    margin-right: 10px;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-container input[type="radio"],
+.radio-container label {
+    margin-right: 10px;
+}

@@ -11,4 +11,3 @@ class OtomotifController extends Controller
         return view('otomotif');
     }
 }
-

@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style>
         .block {
             display: block;
@@ -100,12 +101,11 @@
                                                 <td>{{ $kuis->jumlah_soal }} soal</td>
                                                 <td>
                                                     <a href="{{ route('list_soal', ['id' => $kuis->id]) }}"><i class="fa fa-edit btn btn-edit"></i></a>
-                                                    <form action="{{ route('delete_kuis', ['id' => $kuis->id]) }}" method="POST" style="display:inline;">
+                                                    <form id="delete-form-{{ $kuis->id }}" action="{{ route('delete_kuis', ['id' => $kuis->id]) }}" method="POST" style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="fa fa-trash btn btn-delete ml-2"></button>
                                                     </form>
-
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -122,5 +122,33 @@
         @include('user.demo1.layout.footer')
     </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fungsi delete
+        document.querySelectorAll('.btn-delete').forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Menghentikan aksi default dari tombol submit
+
+                var form = this.closest('form'); // Mendapatkan form terdekat dari tombol delete yang diklik
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Anda tidak akan dapat mengembalikan data ini!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, hapus!',
+                    confirmButtonColor: '#008000', // Warna hijau untuk tombol "Ya, hapus!"
+                    cancelButtonText: 'Tidak, batalkan!',
+                    cancelButtonColor: '#FF0000', // Warna merah untuk tombol "Tidak, batalkan!"
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit(); // Submit form jika pengguna mengonfirmasi penghapusan
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 </html>
