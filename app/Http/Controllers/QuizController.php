@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\QuizPajak;
 use App\Models\SoalPajak;
+use App\Models\RiwayatPengerjaan;
+
 
 class QuizController extends Controller
 {
-//KUIS
+    //KUIS
     public function listKuis()
     {
         $kuisList = QuizPajak::all();
@@ -41,7 +43,7 @@ class QuizController extends Controller
             return redirect()->back()->with('error', 'Kuis tidak ditemukan.');
         }
     }
-    
+
     public function editKuis($id)
     {
         $kuis = QuizPajak::findOrFail($id);
@@ -61,7 +63,7 @@ class QuizController extends Controller
 
 
 
-//SOAL KUIS
+    //SOAL KUIS
     public function listSoal($id)
     {
         $soal = QuizPajak::findOrFail($id);
@@ -141,16 +143,16 @@ class QuizController extends Controller
 
 
 
-//RIWAYAT KUIS  
-    public function riwayatKuis()
+    //RIWAYAT KUIS  
+    public function riwayatPengerjaan()
     {
-        $riwayatKuis = QuizPajak::all(); 
-        return view('user.demo1.riwayat_kuis', ['riwayatKuis' => $riwayatKuis]);
+        $riwayatPengerjaan = RiwayatPengerjaan::all(); // Ambil semua data riwayat pengerjaan
+        return view('user.demo1.riwayat_kuis', compact('riwayatPengerjaan'));
     }
+
     public function evaluasiKuis($id)
     {
         $kuis = QuizPajak::findOrFail($id);
-        return view('user.demo1.evaluasi_kuis', ['kuis' => $kuis]);
+        return view('user.demo1.evaluasi_kuis', compact('kuis'));
     }
-
 }

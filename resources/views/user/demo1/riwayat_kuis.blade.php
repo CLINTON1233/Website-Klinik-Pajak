@@ -31,7 +31,7 @@
 </head>
 
 <body>
-@include('user.demo1.layout.sidebar')
+    @include('user.demo1.layout.sidebar')
 
     <div class="main-panel">
         <div class="container">
@@ -44,57 +44,35 @@
                 </div>
                 <div class="card shadow mb-4">
                     <div class="card-body">
-                      
-                            <!-- Tabel -->
-                            <div class="crud-table">
-                                <table class="table table-auto">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Waktu Pengerjaan</th>
-                                            <th scope="col">Nilai/100.00</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Lihat Evaluasi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Juan Antony</td>
-                                            <td>23 menit</td>
-                                            <td>80.00/100.00</td>
-                                            <td>Selesai</td>
-                                            <td>
-                                                <a href="{{ route('evaluasi_kuis', ['id' => 1]) }}" style="color: blue; text-decoration: underline;">Evaluasi</a>
+                        <!-- Tabel -->
+                        <div class="crud-table">
+                            <table class="table table-auto">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Waktu Penyelesaian</th>
+                                        <th sc ope="col">Nilai/100.00</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Lihat Evaluasi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($riwayatPengerjaan as $riwayat)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $riwayat->nama }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($riwayat->tanggal)->diffForHumans() }}</td>
+                                        <td>{{ $riwayat->skor_akhir }}/100.00</td>
+                                        <td>Selesai</td>
+                                        <td>
+                                            <a href="{{ route('evaluasi_kuis', ['id' => $riwayat->id]) }}" style="color: blue; text-decoration: underline;">Evaluasi</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Lea Jonathan</td>
-                                            <td>15 menit</td>
-                                            <td>60.00/100</td>
-                                            <td>Selesai</td>
-                                            <td>
-                                                <a href="{{ route('evaluasi_kuis', ['id' => 1]) }}" style="color: blue; text-decoration: underline;">Evaluasi</a>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Fadli Suhairi</td>
-                                            <td>20 menit</td>
-                                            <td>90.00/100</td>
-                                            <td>Selesai</td>
-                                            <td>
-                                                <a href="{{ route('evaluasi_kuis', ['id' => 1]) }}" style="color: blue; text-decoration: underline;">Evaluasi</a>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                        
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -24,7 +24,11 @@
         <div class="box ">
             <div class="text-left mt-4 ml-4 ">
                 <h4 class="no-margin">Pertanyaan {{ $currentIndex + 1 }}</h4>
+                @if ($soal->jawaban)
+                <p><span class="green-text">Jawaban disimpan</span></p>
+                @else
                 <p><span class="red-text">Tidak ada jawaban</span></p>
+                @endif
             </div>
             <div class="container mt-5 mb-5">
                 <div class="box1 ">

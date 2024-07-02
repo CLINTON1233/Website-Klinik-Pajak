@@ -1,0 +1,55 @@
+.block {
+    display: block;
+    height: 50px;
+    width: 8px;
+    margin-right: 5px;
+    background: linear-gradient(41deg, #09c778, #01a0f9);
+}
+
+.card-border {
+    border: 1px solid transparent !important;
+    border-image: linear-gradient(41deg, #09c778, #01a0f9) 1 !important;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-card {
+    background: linear-gradient(41deg, #09c778, #01a0f9);
+    border-radius: 0px;
+}
+
+.card-nav {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+}
+
+.row-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.question-card {
+    flex: 3;
+}
+
+.nav-card {
+    flex: 0;
+    margin-top: -20px;
+}
+
+.nav-card .btn {
+    width: 30px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: linear-gradient(41deg, #09c778, #01a0f9);
+    border: none;
+}
+
+.nav-card .card-title {
+    font-size: 16px;
+}

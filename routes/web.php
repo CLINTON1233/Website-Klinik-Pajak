@@ -95,7 +95,7 @@ Route::post('/user/demo1/update_soal/{id}', [QuizController::class, 'updateSoal'
 Route::delete('/user/demo1/delete_soal/{id}', [QuizController::class, 'deleteSoal'])->name('delete_soal');
 
 //Rute Riwayat kuis
-Route::get('/user/demo1/riwayat_kuis', [QuizController::class, 'riwayatKuis'])->name('riwayat_kuis');
+Route::get('/user/demo1/riwayat_kuis', [QuizController::class, 'riwayatPengerjaan'])->name('riwayat_kuis');
 Route::get('/user/demo1/evaluasi_kuis/{id}', [QuizController::class, 'evaluasiKuis'])->name('evaluasi_kuis');
 
 // Rute untuk Pelatihan
@@ -170,6 +170,7 @@ Route::post('/quiz-page/{currentIndex}', [KuispajakController::class, 'saveAnswe
 Route::get('/konfirmasi-kuis', [KuispajakController::class, 'konfirmasiKuis'])->name('konfirmasi_kuis');
 Route::post('/kirim-jawaban', [KuispajakController::class, 'sendAnswers'])->name('send_answers');
 Route::get('/hasil-kuis', [KuispajakController::class, 'hasilKuis'])->name('hasil_kuis');
+Route::get('/evaluasi-kuis', [KuispajakController::class, 'evaluasiKuis'])->name('evaluasi_kuis');
 
 //Materi Pelatihan
 Route::get('/materi_pelatihan', [MateriPelatihanController::class, 'tampilkan'])->name('materi');

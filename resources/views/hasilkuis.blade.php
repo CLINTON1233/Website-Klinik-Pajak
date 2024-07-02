@@ -24,26 +24,30 @@
             <div class="text-container">
                 <h3>Hasil Kuis Pajak</h3>
                 <div class="summary">
-                    <h3>Ringkasan Pengerjaan Kuis</h3>
+
                     <table>
                         <tr>
+
+                            <th>Status</th>
+                            <th>Nilai/100.00</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>Skor Akhir</th>
                             <th>Tanggal</th>
+                            <th>Evaluasi</th>
                         </tr>
-                        <tr>
+                        <tr class="odd">
+                            <td>Selesai<br>Dikirim {{ session('riwayat')->tanggal }}</td>
+                            <td>{{ session('riwayat')->skor_akhir }}/100.00</td>
                             <td>{{ session('riwayat')->nama }}</td>
                             <td>{{ session('riwayat')->email }}</td>
-                            <td>{{ session('riwayat')->skor_akhir }}</td>
                             <td>{{ session('riwayat')->tanggal }}</td>
+                            <td><a href="{{ route('evaluasi_kuis') }}">Evaluasi</a></td>
                         </tr>
                     </table>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 </body>
 
 </html>
