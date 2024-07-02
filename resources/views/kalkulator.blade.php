@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                             <button class="btnBeranda">
-                                <a href="{{ url('/beranda') }}">BERANDA</a>
+                                <a href="{{ route('beranda') }}">BERANDA</a>
                             </button>
                         </div>
                     </form>
@@ -222,7 +222,7 @@
                             </div>
                             <div class="field">
                                 <button class="firstHome next">
-                                    <a href="{{ url('/beranda') }}">BERANDA</a>
+                                    <a href="{{ route('beranda') }}">BERANDA</a>
                                 </button>
                                 <button class="firstNext next" id="nextAwal">Selanjutnya</button>
                             </div>
@@ -408,7 +408,7 @@
                             </div>
                         </div>
                         <button class="btnBeranda">
-                            <a href="{{ url('/beranda') }}">BERANDA</a>
+                            <a href="{{ route('beranda') }}">BERANDA</a>
                         </button>
                     </div>
                 </form>
@@ -460,7 +460,7 @@
                             </div>
                         </div>
                         <button class="btnBeranda">
-                            <a href="{{ url('/beranda') }}">Beranda</a>
+                            <a href="{{ route('beranda') }}">Beranda</a>
                         </button>
                     </div>
                 </form>
