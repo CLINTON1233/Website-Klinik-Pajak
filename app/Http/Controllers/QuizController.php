@@ -150,9 +150,9 @@ class QuizController extends Controller
         return view('user.demo1.riwayat_kuis', compact('riwayatPengerjaan'));
     }
 
-    public function evaluasiKuis($id)
+    public function showEvaluasi($id)
     {
-        $kuis = QuizPajak::findOrFail($id);
-        return view('user.demo1.evaluasi_kuis', compact('kuis'));
+        $riwayat = RiwayatPengerjaan::findOrFail($id);
+        return view('user.demo1.evaluasi_kuis_admin', ['riwayat' => $riwayat]);
     }
 }

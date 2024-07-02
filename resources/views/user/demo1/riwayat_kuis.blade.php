@@ -52,7 +52,7 @@
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">Waktu Penyelesaian</th>
-                                        <th sc ope="col">Nilai/100.00</th>
+                                        <th scope="col">Nilai/100.00</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Lihat Evaluasi</th>
                                     </tr>

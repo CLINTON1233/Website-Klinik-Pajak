@@ -96,7 +96,7 @@ Route::delete('/user/demo1/delete_soal/{id}', [QuizController::class, 'deleteSoa
 
 //Rute Riwayat kuis
 Route::get('/user/demo1/riwayat_kuis', [QuizController::class, 'riwayatPengerjaan'])->name('riwayat_kuis');
-Route::get('/user/demo1/evaluasi_kuis/{id}', [QuizController::class, 'evaluasiKuis'])->name('evaluasi_kuis');
+Route::get('/evaluasi/{id}', [QuizController::class, 'showEvaluasi'])->name('evaluasi_kuis_admin');
 
 // Rute untuk Pelatihan
 Route::get('/user/demo1/list_pelatihan', [PelatihanController::class, 'listPelatihan'])->name('list_pelatihan');
@@ -154,8 +154,7 @@ Route::get('/kategori_usaha', [Kategori_UsahaController::class, 'tampilkan'])->n
 //Forum
 Route::get('/forum', [ForumController::class, 'tampilkan'])->name('forum');
 
-// Kuis pajak
-// Kuis pajak
+// Kuis User Pajak
 Route::get('/kuis', [KuispajakController::class, 'tampilkanKuisUtama'])->name('kuis');
 Route::get('/kuispajak', [KuispajakController::class, 'tampilkanKuisPajak'])->name('kuispajak');
 Route::get('/quiz-page', [KuispajakController::class, 'showQuizPage'])->name('kuis.show');
@@ -170,7 +169,7 @@ Route::post('/quiz-page/{currentIndex}', [KuispajakController::class, 'saveAnswe
 Route::get('/konfirmasi-kuis', [KuispajakController::class, 'konfirmasiKuis'])->name('konfirmasi_kuis');
 Route::post('/kirim-jawaban', [KuispajakController::class, 'sendAnswers'])->name('send_answers');
 Route::get('/hasil-kuis', [KuispajakController::class, 'hasilKuis'])->name('hasil_kuis');
-Route::get('/evaluasi-kuis', [KuispajakController::class, 'evaluasiKuis'])->name('evaluasi_kuis');
+Route::get('/evaluasi-kuis', [KuispajakController::class, 'evaluasiKuisUser'])->name('evaluasi_kuis');
 
 //Materi Pelatihan
 Route::get('/materi_pelatihan', [MateriPelatihanController::class, 'tampilkan'])->name('materi');

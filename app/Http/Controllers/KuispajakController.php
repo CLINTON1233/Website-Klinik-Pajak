@@ -120,10 +120,9 @@ class KuispajakController extends Controller
     {
         return view('hasilkuis');
     }
-    public function evaluasiKuis()
-    {
 
-        $riwayat = session('riwayat');
-        return view('evaluasi_kuis', ['riwayat' => $riwayat]);
+    public function evaluasiKuisUser()
+    {
+        return view('evaluasi_kuis_user');
     }
 }

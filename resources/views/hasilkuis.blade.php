@@ -5,9 +5,6 @@
     <title>Halaman Quiz</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/konfirmasikuis.css') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -16,7 +13,7 @@
     <br><br><br><br>
     <div class="container mt-5 mb-1">
         <div class="header-container">
-            <h3> <img src="{{ asset('images/kuislogo.png') }}" alt="" class="small-img"> Kuis PPh 21: Penghitungan PPh 21</h3>
+            <h3><img src="{{ asset('images/kuislogo.png') }}" alt="" class="small-img"> Kuis PPh 21: Penghitungan PPh 21</h3>
         </div>
     </div>
     <div class="container">
@@ -24,10 +21,8 @@
             <div class="text-container">
                 <h3>Hasil Kuis Pajak</h3>
                 <div class="summary">
-
                     <table>
                         <tr>
-
                             <th>Status</th>
                             <th>Nilai/100.00</th>
                             <th>Nama</th>
@@ -46,8 +41,8 @@
                     </table>
                 </div>
             </div>
-
         </div>
+    </div>
 </body>
 
 </html>

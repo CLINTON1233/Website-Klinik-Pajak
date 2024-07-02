@@ -187,7 +187,7 @@
                                -->
 
                                             <div class="flex justify-center items-center mt-10 text-center">
-                                                <a class="btn" href="kirimkuis.php" style="background-image: linear-gradient(135deg, #09c778, #01a0f9); color: #fff;">
+                                                <a class="btn" href="{{ route('hasil_kuis') }}" style="background-image: linear-gradient(135deg, #09c778, #01a0f9); color: #fff;">
                                                     Kembali
                                                 </a>
 
