@@ -27,21 +27,21 @@
                     <hr>
                 </header>
                 <div class="progress-bar" id="progressBar">
-                    <div class="step">
+                    <div class="step visually-hidden" id="step1">
                         <p>Informasi Wajib Pajak</p>
                         <div class="bullet">
                             <span>1</span>
                         </div>
                         <div class="check ">1</div>
                     </div>
-                    <div class="step">
+                    <div class="step visually-hidden" id="step2">
                         <p>Penghasilan</p>
                         <div class="bullet">
                             <span>2</span>
                         </div>
                         <div class="check ">2</div>
                     </div>
-                    <div class="step">
+                    <div class="step visually-hidden" id="step3">
                         <p>Penghitungan</p>
                         <div class="bullet">
                             <span>3</span>
@@ -77,7 +77,7 @@
 
                 <!-- Pegawai Tetap -->
 
-                <!-- pegawai tetap bulanan -->
+                <!-- pegawai tetap setiap masa -->
                 <div style="margin-left :200px" class="form-outer center" id="pemotonganSetiapMasa">
                     <form name="formMasaBulanan" method="POST">
                         <div class="page slide-page2" id="pageBulanan">
@@ -129,11 +129,14 @@
                                     <input type="text" disabled="true" readonly="readonly" class="form-control-select" name="pph21Bulanan" id="pph21Bulanan" style="text-align:right; margin-right: 7px;" placeholder="0" onFocus="startCalc();" onBlur="stopCalc();">
                                 </div>
                             </div>
+                            <button class="btnBeranda">
+                                <a href="{{ url('/beranda') }}">BERANDA</a>
+                            </button>
                         </div>
                     </form>
                 </div>
 
-                <!-- pegawai tetap tahunan -->
+                <!-- pegawai tetap masa pajak terakhir -->
                 <div style="margin-left :200px" class="form-outer center visually-hidden" id="pemotonganMasaTerakhir">
                     <form name="formMasaTerakhir" method="POST">
                         <div class="page slide-page">
@@ -141,14 +144,15 @@
                             <div class="field">
                                 <div class="label">Status NPWP</div>
                                 <select id="npwp" name="npwp" class="select">
-                                    <option value="1" selected="selected">NPWP</option>
+                                    <option value="" class="visually-hidden" disabled selected>Pilih Status NPWP</option>
+                                    <option value="1">NPWP</option>
                                     <option value="0">Non NPWP</option>
                                 </select>
                             </div>
                             <div class="field">
                                 <div class="label">PTKP</div>
-                                <select id="selectPtkpTerakhir" class="select">
-                                    <option value="" disabled selected>Pilih PTKP</option>
+                                <select id="selectPtkpTerakhir" class="select" onFocus="startCalc();" onBlur="stopCalc();">
+                                    <option value="" class="visually-hidden" disabled selected>Pilih PTKP</option>
                                     <option value="54000000">TK/0 - 54000000</option>
                                     <option value="58500000">TK/1 - 58500000</option>
                                     <option value="63000000">TK/2 - 63000000</option>
@@ -160,56 +164,67 @@
                                 </select>
                             </div>
                             <div class="field">
+                                <div class="label">Penghitungan</div>
+                                <select id="selectPenghitungan" class="select" onFocus="startCalc();" onBlur="stopCalc();">
+                                    <option value="" class="visually-hidden" disabled selected>Pilih Penghitungan</option>
+                                    <option value="setahun">Setahun</option>
+                                    <option value="disetahunkan">Disetahunkan</option>
+                                </select>
+                            </div>
+                            <div class="field">
                                 <label class="label">Masa Penghasilan</label>
                                 <div class="select-month">
-                                    <select id="masaAwal" class="form-control-select">
-                                        <option value="1" selected="selected">Januari</option>
-                                        <option value="2">Februari</option>
-                                        <option value="3">Maret</option>
-                                        <option value="4">April</option>
-                                        <option value="5">Mei</option>
-                                        <option value="6">Juni</option>
-                                        <option value="7">Juli</option>
-                                        <option value="8">Agustus</option>
-                                        <option value="9">September</option>
-                                        <option value="10">Oktober</option>
-                                        <option value="11">November</option>
-                                        <option value="12">Desember</option>
+                                    <select id="masaAwal" class="form-control-select" onFocus="startCalc();" onBlur="stopCalc();">
+                                        <option value="" class="visually-hidden" disabled selected>Pilih Masa Awal</option>
+                                        <option id="masaAwal1" value="1">Januari</option>
+                                        <option id="masaAwal2" value="2">Februari</option>
+                                        <option id="masaAwal3" value="3">Maret</option>
+                                        <option id="masaAwal4" value="4">April</option>
+                                        <option id="masaAwal5" value="5">Mei</option>
+                                        <option id="masaAwal6" value="6">Juni</option>
+                                        <option id="masaAwal7" value="7">Juli</option>
+                                        <option id="masaAwal8" value="8">Agustus</option>
+                                        <option id="masaAwal9" value="9">September</option>
+                                        <option id="masaAwal10" value="10">Oktober</option>
+                                        <option id="masaAwal11" value="11">November</option>
+                                        <option id="masaAwal12" value="12">Desember</option>
                                     </select>
                                 </div>
                                 <div style="float:left; margin-left: 30px; margin-right: -30px;">
                                     &nbsp;&nbsp;s/d&nbsp;
                                 </div>
                                 <div class="select-month">
-                                    <select id="masaAkhir" class="form-control-select">
-                                        <option value="1">Januari</option>
-                                        <option value="2">Februari</option>
-                                        <option value="3">Maret</option>
-                                        <option value="4">April</option>
-                                        <option value="5">Mei</option>
-                                        <option value="6">Juni</option>
-                                        <option value="7">Juli</option>
-                                        <option value="8">Agustus</option>
-                                        <option value="9">September</option>
-                                        <option value="10">Oktober</option>
-                                        <option value="11">November</option>
-                                        <option value="12" selected="selected">Desember</option>
+                                    <select id="masaAkhir" class="form-control-select" onFocus="startCalc();" onBlur="stopCalc();">
+                                        <option value="" class="visually-hidden" disabled selected>Pilih Masa Akhir</option>
+                                        <option id="masaAkhir1" value="1">Januari</option>
+                                        <option id="masaAkhir2" value="2">Februari</option>
+                                        <option id="masaAkhir3" value="3">Maret</option>
+                                        <option id="masaAkhir4" value="4">April</option>
+                                        <option id="masaAkhir5" value="5">Mei</option>
+                                        <option id="masaAkhir6" value="6">Juni</option>
+                                        <option id="masaAkhir7" value="7">Juli</option>
+                                        <option id="masaAkhir8" value="8">Agustus</option>
+                                        <option id="masaAkhir9" value="9">September</option>
+                                        <option id="masaAkhir10" value="10">Oktober</option>
+                                        <option id="masaAkhir11" value="11">November</option>
+                                        <option id="masaAkhir12" value="12">Desember</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="title2">Konfigurasi</div>
                             <div class="field">
                                 <div class="label2">Skema Perhitungan</div>
-                                <select id="skemaPerhitungan" name="skema_perhitungan" style="margin-left: 19.5%;" class="select">
-                                    <option value="0" selected="selected">Gross</option>
+                                <select id="skemaPerhitungan" name="skema_perhitungan" style="margin-left: 19.5%;" class="select" onFocus="startCalc();" onBlur="stopCalc();">
+                                    <option value="" class="visually-hidden" disabled selected>Pilih Skema Perhitungan</option>
+                                    <option value="0">Gross</option>
                                     <option value="1">Gross Up</option>
                                 </select>
                             </div>
                             <div class="field">
-                                <button class="firstNext next" id="nextAwal">Selanjutnya</button>
-                                <button class="firstNext next">
-                                    <a href="index.php">BERANDA</a>
+                                <button class="firstHome next">
+                                    <a href="{{ url('/beranda') }}">BERANDA</a>
                                 </button>
+                                <button class="firstNext next" id="nextAwal">Selanjutnya</button>
                             </div>
                         </div>
 
@@ -299,24 +314,6 @@
                         <!-- halaman 3 -->
                         <div class="page">
                             <div style="color: green;" class="title">C. Penghitungan PPh Pasal 21:</div>
-                            <!-- <div class="field-pph">
-                <div class="label-pph">12. Penghasilan Bruto Setahun</div>
-                <div class="col-75">
-                  <input type="text" disabled="true" readonly="readonly" class="form-control" name="brutoSetahun" id="brutoSetahun" placeholder="0" style="text-align:right">
-                </div>
-              </div> -->
-                            <!-- <div class="field-pph">
-                <div class="label-pph">13. Biaya Jabatan Setahun</div>
-                <div class="col-75">
-                  <input type="text" disabled="true" readonly="readonly" class="form-control" name="jabatanSetahun" id="jabatanSetahun" placeholder="0" style="text-align:right">
-                </div>
-              </div> -->
-                            <!-- <div class="field-pph">
-                <div class="label-pph">14. Iuran Pensiun Setahun</div>
-                <div class="col-75">
-                  <input type="text" disabled="true" readonly="readonly" class="form-control" name="iuranSetahun" id="iuranSetahun" placeholder="0" style="text-align:right">
-                </div>
-              </div> -->
                             <div class="field">
                                 <div class="label-long">13. Penghasilan Neto (8 - 12)</div>
                                 <div class="col-75">
@@ -362,12 +359,6 @@
                                     <input type="text" class="form-control" name="pph21Sebelum" id="pph21Sebelum" placeholder="0" style="text-align:right" onFocus="startCalc();" onBlur="stopCalc();">
                                 </div>
                             </div>
-                            <!-- <div class="field-pph">
-                <div class="label-pph">23. PPh Pasal 21 Terutang Setahun/Disetahunkan</div>
-                <div class="col-75">
-                  <input type="text" disabled="true" readonly="readonly" class="form-control" name="pph21Terutang" id="pph21Terutang" placeholder="0" style="text-align:right">
-                </div>
-              </div> -->
                             <div class="field">
                                 <div class="label-long">20. PPh Pasal 21 Terutang (18 - 19)</div>
                                 <div class="col-75">
@@ -389,6 +380,7 @@
             <div style="margin-left :200px" class="form-outer center visually-hidden" id="tidakTetapHarian">
                 <form name="formTidakTetapHarian" method="POST">
                     <div class="page slide-page2">
+                        <div class="title1">Penghasilan</div>
                         <div class="field">
                             <div class="label-long">Penghasilan Bruto</div>
                             <div class="col-75">
@@ -415,6 +407,9 @@
                                 <input type="text" disabled="true" readonly="readonly" class="form-control" name="pph21TidakTetapHarian" id="pph21TidakTetapHarian" placeholder="0" style="text-align:right">
                             </div>
                         </div>
+                        <button class="btnBeranda">
+                            <a href="{{ url('/beranda') }}">BERANDA</a>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -437,6 +432,7 @@
                                 <option value="72000000">K/3 - 72000000</option>
                             </select>
                         </div>
+                        <div class="title1">Penghasilan</div>
                         <div class="field">
                             <div class="label-long">Penghasilan Bruto</div>
                             <div class="col-75">
@@ -463,15 +459,18 @@
                                 <input type="text" disabled="true" readonly="readonly" class="form-control" name="pph21TidakTetapBulanan" id="pph21TidakTetapBulanan" placeholder="0" style="text-align:right" onFocus="startCalc();" onBlur="stopCalc();">
                             </div>
                         </div>
+                        <button class="btnBeranda">
+                            <a href="{{ url('/beranda') }}">Beranda</a>
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     <!-- kalkulator js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="{{ asset('js/kalkulator.js') }}"></script>
-
 </body>
 
 </html>
